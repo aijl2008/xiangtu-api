@@ -34,7 +34,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => dirname(dirname(base_path())) . '/sqlite/xiangtu.sqlite',
+            'database' => dirname(base_path()) . '/sqlite/xiangtu.sqlite',
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
