@@ -52,9 +52,9 @@ class Statistics
                          date('m-d', time() - 3600 * 24 * 8),
                          date('m-d', time() + 3600 * 24)
                      ])
-                     ->groupBy(DB::raw('left(created_at,10)'))
+                     ->groupBy(DB::raw('substr(created_at,1,10)'))
                      ->select(DB::raw(
-                         'left(created_at,10) as date, 
+                         'substr(created_at,1,10) as date, 
                 count(id) as number'
                      ))->get() as $item) {
             if (array_key_exists($item->date, $followers)) {
@@ -69,9 +69,9 @@ class Statistics
                          date('m-d', time() - 3600 * 24 * 8),
                          date('m-d', time() + 3600 * 24)
                      ])
-                     ->groupBy(DB::raw('left(created_at,10)'))
+                     ->groupBy(DB::raw('substr(created_at,1,10)'))
                      ->select(DB::raw(
-                         'left(created_at,10) as date, 
+                         'substr(created_at,1,10) as date, 
                 count(id) as number'
                      ))->get() as $item) {
             if (array_key_exists($item->date, $play)) {
@@ -87,9 +87,9 @@ class Statistics
                          date('m-d', time() - 3600 * 24 * 8),
                          date('m-d', time() + 3600 * 24)
                      ])
-                     ->groupBy(DB::raw('left(created_at,10)'))
+                     ->groupBy(DB::raw('substr(created_at,1,10)'))
                      ->select(DB::raw(
-                         'left(created_at,10) as date, 
+                         'substr(created_at,1,10) as date, 
                 count(id) as number'
                      ))->get() as $item) {
             if (array_key_exists($item->date, $upload)) {

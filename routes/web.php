@@ -8,9 +8,15 @@ Route::get("/vue", "VueController@index");
 /**
  * 公开页面，视频播放
  */
+/**
 Route::get("/videos/{video}", "VideoController@show")->name('videos.show');
 Route::post("/videos/play/{video}", "VideoController@play")->name('videos.play');
 Route::get("/", "VideoController@index")->name('home');
+*/
+
+Route::get("/", function(){
+    return redirect()->to(route("my.videos.index"));
+})->name('home');
 /**
  * 管理员登录
  */

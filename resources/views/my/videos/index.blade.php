@@ -41,9 +41,9 @@
                 <div class="clearfix"></div>
             </div>
         @empty
-            <div class="no_video text-center">
-                <img src="/images/no-video.png">
-                <p>没有视频</p>
+            <div class="no_video text-center"><a href="{{route('my.videos.create')}}">
+                <img src="/images/icon-upload.png"></a>
+                <h4><a href="{{route('my.videos.create')}}">点此上传视频</a></h4>
             </div>
         @endforelse
         <div class="col-md-12 text-center">{{$rows->links()}}</div>

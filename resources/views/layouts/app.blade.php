@@ -69,14 +69,22 @@
             </div>
             <div class="col-md-6 col-sm-9 col-xs-9 text-right user-nav">
                 @if ($auth == 'wechat')
-                    <a href="{{ route('home') }}"><i class="glyphicon glyphicon-home"></i></a><a
+<ul class="nav navbar-nav navbar-right">
+<a href="{{ route('home') }}"><i class="glyphicon glyphicon-home"></i></a><a
                             href="{{ route('wechat.logout') }}"><i
-                                class="glyphicon glyphicon-lock"></i></a><a
-                            href="{{route('my.videos.index')}}"><img
+                                class="glyphicon glyphicon-lock"></i></a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" style="padding: 0px" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img
                                 src="/images/user-32.png"
                                 class="avatar-small lazyload img-circle"
                                 alt="{{$user->nickname}}"
                                 data-original="{{$user->avatar}}"></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ route('my.statistics.index') }}">数据统计</a></li>
+            <li><a href="{{ route('my.profile') }}">修改资料</a></li>
+          </ul>
+        </li>
+      </ul>
                 @elseif($auth == 'user')
                     <i>{{ $user->name }}</i>
                     <i class="glyphicon glyphicon-home"></i>
@@ -135,24 +143,15 @@
                                 </a></li>
                         @elseif($auth=='wechat')
                             <li id="my_videos_index">
-                                <a href="{{ route('my.videos.index') }}"><i class="fa fa-cube"></i>我的视频</a>
+                                <a href="{{ route('my.videos.index') }}"><i class="fa fa-cube"></i>首页</a>
                             </li>
                             <li id="my_followed_index">
-                                <a href="{{ route('my.followed.index') }}"><i class="fa fa-cube"></i>我的关注</a>
+                                <a href="{{ route('my.followed.index') }}"><i class="fa fa-cube"></i>关注</a>
                             </li>
                             <li id="my_liked_index">
-                                <a href="{{ route('my.liked.index') }}"><i class="fa fa-play-cube"></i>我的收藏 </a>
+                                <a href="{{ route('my.liked.index') }}"><i class="fa fa-play-cube"></i>收藏 </a>
                             </li>
-                            <li id="my_statistics_index">
-                                <a href="{{ route('my.statistics.index') }}"><i class="fa fa-cube"></i>数据统计
-                                </a>
-                            </li>
-                            <li id="my_uploader">
-                                <a href="{{ route('my.videos.create') }}"><i class="fa fa-cube"></i>上传视频 </a>
-                            </li>
-                            <li id="my_uploader">
-                                <a href="{{ route('my.profile') }}"><i class="fa fa-cube"></i>修改资料 </a>
-                            </li>
+                            <li><a style="color:#08b706" ref="{{route('my.videos.create')}}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAUCAMAAACknt2MAAAASFBMVEUAAAAJuQgJuAcKuQgazBoJuQcIuAYIuAYIuQYKuQoPvQ8JuAYJtwcIuAcJtwYIuQcIuQYKuQgOvAcJuAYJuAcIuAYJuQkItwYiB3yJAAAAF3RSTlMAV42GCmjX+IAwEO7mvqmYfD8kzcKeHQgPjOoAAAB4SURBVCjPzdDLDoQgDEDRiyMg+HYe/f8/nYYEAxpdexcNySmbgnVS5iw5K8eSbTqdLnZT9Q9Ye93QZwtLaWC8SKPUAb+KjI5EMxAqemXyK/FTUptJG7xckPZE4oaWa2JKNJykBxo9LfOJvmj2vRHHg4yRvWDKArk/G00jjB6szzsAAAAASUVORK5CYII=">上传视频</a></li>
                         @else
                         @endif
                     @endif
