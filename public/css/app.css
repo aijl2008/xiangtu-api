@@ -1,0 +1,315 @@
+#waterfall-container .pin {
+    width: 260px;
+    margin: 10px;
+}
+
+.avatar-small {
+    width: 32px;
+    height: 32px;
+}
+
+.avatar-middle {
+    width: 48px;
+    height: 48px;
+}
+
+.avatar-large {
+    width: 160px;
+    height: 160px;
+}
+
+.cover {
+    width: 1024px;
+}
+
+.title {
+    background-color: #efefef;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.nickname {
+    display: block;
+    background-color: #efefef;
+    line-height: 22px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.video-info-container {
+    display: block;
+    float: right
+}
+
+.my-videos {
+    display: block;
+    margin: 10px 0;
+}
+
+.my-videos .updated_at {
+    display: inline-block;
+    float: right
+}
+
+.my-videos .liked_number {
+    display: inline-block;
+    float: left;
+    margin: 0 10px;
+}
+
+.my-videos .played_number {
+    display: inline-block;
+    float: left;
+    margin: 0 10px;
+}
+
+.avatar-container {
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.avatar-container * {
+    vertical-align: bottom;
+}
+
+.avatar-container a {
+    display: inline-block;
+}
+
+.played_number {
+    color: #cc0000;
+}
+
+.liked_number {
+    color: #cc0000;
+}
+
+.created_at {
+
+}
+
+.user-nav {
+    margin-top: 10px;
+}
+
+.user-nav * {
+    vertical-align: middle;
+}
+
+.user-nav i {
+    color: #cc0000;
+    font-size: 28px;
+    line-height: 28px;
+    margin-right: 10px;
+}
+
+.red {
+    color: #cc0000;
+}
+
+.tip {
+    color: #cc0000;
+}
+
+#top {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.label-default {
+    background-color: #cc0000;
+}
+
+.label-default[href]:hover,
+.label-default[href]:focus {
+    background-color: #5e5e5e;
+}
+
+.my-followed {
+    text-align: center;
+}
+
+.my-followed img {
+    margin-bottom: 5px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.my-followed a {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.footer {
+    height: 80px;
+    color: #666666;
+    background: #b5b5b5;
+}
+
+.footer .copyright {
+    display: block;
+    margin: 20px;
+}
+
+.footer .icp {
+    display: block;
+    margin: 20px;
+}
+
+#upload-video {
+    margin-bottom: 300px;
+}
+
+.body {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+
+.footer_con {
+
+    height: 100px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.recommend {
+    padding: 50px;
+}
+
+/*#player-container-id {*/
+/*width: 480px;*/
+/*height: 360px;*/
+/*margin-bottom: 20px;*/
+/*}*/
+
+/**
+ * iphone 5/SE
+ */
+@media screen and (min-width: 320px) {
+    .recommend {
+        display: none;
+    }
+
+    .icp {
+        font-size: 9px;
+    }
+
+    /*#player-container-id {*/
+    /*width: 290px;*/
+    /*height: 195px;*/
+    /*}*/
+}
+
+/**
+ * iphone 6/8/8
+ */
+@media screen and (min-width: 375px) {
+    .recommend {
+        display: none;
+    }
+
+    /*#player-container-id {*/
+    /*width: 343px;*/
+    /*height: 232px;*/
+    /*}*/
+}
+
+/**
+ * iphone 6/8/8p
+ */
+@media screen and (min-width: 414px) {
+    .recommend {
+        display: none;
+    }
+
+    /*#player-container-id {*/
+    /*width: 384px;*/
+    /*height: 258px;*/
+    /*}*/
+}
+
+@media screen and (min-width: 768px) {
+    .recommend {
+        display: block;
+    }
+
+    .cover img {
+        /*min-height: 240px;*/
+    }
+
+    /*#player-container-id {*/
+    /*width: 720px;*/
+    /*height: 480px;*/
+    /*}*/
+}
+
+@media (min-width: 992px) {
+    .dl-horizontal dt {
+        float: left;
+        width: 80px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 85px;
+    }
+
+    .recommend {
+        display: block;
+    }
+
+    .cover img {
+        /*min-height: 272px;*/
+    }
+
+    /*#player-container-id {*/
+    /*width: 720px;*/
+    /*height: 480px;*/
+    /*margin-bottom: 20px;*/
+    /*}*/
+}
+
+#player-container-id {
+    margin-bottom: 5px;
+}
+
+.fixed-image {
+
+    padding: 4px;
+    width: 360px;
+    height: 240px;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.fixed-image img {
+    margin: 0 auto;
+    max-width: 300px;
+    max-height: 240px;
+}

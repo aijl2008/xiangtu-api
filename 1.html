@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--pages/uploadList/uploadList.wxml-->
+<view class="container">
+    <image class="video-image" src="/images/video-upload-button-64.png" bindtap="jumpToUpload"></image>
+    <text class="btn" bindtap="jumpToUpload">点击上传视频</text>
+</view>
+
+<view class="video-container">
+    <block wx:for="{{videoList}}" wx:key="id">
+        <component-video-item video="{{item}}" current-id="{{currentId}}" index="{{index}}"
+                              bind:play-video="playVideo"
+                              bind:collection-changed="collentionChanged"
+                              bind:follow-changed="followChanged"></component-video-item>
+    </block>
+</view>
+
+
+</body>
+</html>
