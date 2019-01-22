@@ -25,14 +25,16 @@ class Video
      * @param bool $simple 是否启用简单分页
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Contracts\Pagination\Paginator
      */
-    function paginate(Wechat $Wechat = null, $classification = 0, $wechat_id = 0, $take = 16, $simple = true)
+    function paginate(Wechat $Wechat = null, $classification = 0, $wechat_id = 0, $take = 16, $simple = true, $excepted_video_id = 0)
     {
         if ($wechat_id) {
             if ($Wechat && $wechat_id == $Wechat->id) {
-                $video = \App\Models\Video::query()->withoutGlobalScopes()->where('wechat_id', $wechat_id);
+                $video = \App\Models\Video::query()->withoutGlobalScopes()
+			->where('id', '!=', $excepted_video_id)->where('wechat_id', $wechat_id);
             } else {
                 $video = \App\Models\Video::query()
-                    ->where('wechat_id', $wechat_id);
+                    ->where('wechat_id', $wechat_id)
+                    ->where('id', '!=', $excepted_video_id);
                 if ($Wechat) {
                     if ($Wechat->haveFollowedWechatId($wechat_id)) {
                         $video->whereIn('visibility', [1, 2]);
@@ -43,6 +45,11 @@ class Video
                     $video->where('visibility', 1);
                 }
             }
+            if ($video->count() < 6){
+                    $video = \App\Models\Video::query()
+                    ->where('id', '!=', $excepted_video_id)
+                    ->where('visibility', 1);
+                }
         } else {
             $video = \App\Models\Video::query()
                 ->where(function (Builder $builder) use ($Wechat) {

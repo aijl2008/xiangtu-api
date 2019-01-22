@@ -24,13 +24,15 @@ class VideoController extends Controller
                     $request->input('classification'),
                     $request->input('wechat_id'),
                     16,
-                    false
+                    false,
+		    $request->input('video_id')
                 )
         );
     }
 
-    function show(Request $request, Video $video)
+    function show(Request $request, $id)
     {
+	$video = Video::query()->findOrFail(intval($id));
         $video->increment('played_number');
         $user = $request->user('api');
         $video->wechat()->increment('played_number');
