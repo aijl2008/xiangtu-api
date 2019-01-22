@@ -20,7 +20,7 @@ class QRCodeController
 {
     function video(Request $request)
     {
-        $file = md5($request->url());
+        $file = md5($request->url() . '?' . $request->getQueryString());
         if (!$request->input("nocache") && Storage::exists($file)) {
             if ($request->input('download')) {
                 return response()->download(Storage::path($file));
@@ -49,7 +49,8 @@ class QRCodeController
          * cover
          */
         $cover = Image::make($video->cover_url);
-        $cover->resize(720, 720 * $cover->getWidth() / $cover->getHeight());
+        //$cover->resize(720, 720 * $cover->getWidth() / $cover->getHeight());
+
         $cover->crop(720, 480);
         $canvas->insert($cover);
         $canvas->text(str_limit($video->title, 17, ''), 50, 50, function ($font) {
